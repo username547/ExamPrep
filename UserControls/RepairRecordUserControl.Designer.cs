@@ -40,13 +40,17 @@
             TextBoxDesc = new TextBox();
             label6 = new Label();
             label7 = new Label();
-            TextBoxFullName = new TextBox();
+            TextBoxClientFullName = new TextBox();
             label8 = new Label();
             TextBoxPhone = new TextBox();
             label9 = new Label();
             TextBoxEmail = new TextBox();
-            ButtonUpdate = new Button();
-            ButtonDelete = new Button();
+            btnUpdate = new Button();
+            label10 = new Label();
+            TextBoxStatus = new TextBox();
+            btnDelete = new Button();
+            label11 = new Label();
+            TextBoxMasterFullName = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -128,13 +132,13 @@
             TextBoxDesc.Multiline = true;
             TextBoxDesc.Name = "TextBoxDesc";
             TextBoxDesc.ScrollBars = ScrollBars.Vertical;
-            TextBoxDesc.Size = new Size(431, 100);
+            TextBoxDesc.Size = new Size(537, 128);
             TextBoxDesc.TabIndex = 9;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(470, 12);
+            label6.Location = new Point(557, 53);
             label6.Name = "label6";
             label6.Size = new Size(174, 20);
             label6.TabIndex = 10;
@@ -143,23 +147,23 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(474, 38);
+            label7.Location = new Point(561, 79);
             label7.Name = "label7";
             label7.Size = new Size(42, 20);
             label7.TabIndex = 11;
             label7.Text = "ФИО";
             // 
-            // TextBoxFullName
+            // TextBoxClientFullName
             // 
-            TextBoxFullName.Location = new Point(522, 35);
-            TextBoxFullName.Name = "TextBoxFullName";
-            TextBoxFullName.Size = new Size(220, 27);
-            TextBoxFullName.TabIndex = 12;
+            TextBoxClientFullName.Location = new Point(626, 76);
+            TextBoxClientFullName.Name = "TextBoxClientFullName";
+            TextBoxClientFullName.Size = new Size(220, 27);
+            TextBoxClientFullName.TabIndex = 12;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(480, 71);
+            label8.Location = new Point(567, 112);
             label8.Name = "label8";
             label8.Size = new Size(36, 20);
             label8.TabIndex = 13;
@@ -167,7 +171,7 @@
             // 
             // TextBoxPhone
             // 
-            TextBoxPhone.Location = new Point(522, 68);
+            TextBoxPhone.Location = new Point(626, 109);
             TextBoxPhone.Name = "TextBoxPhone";
             TextBoxPhone.Size = new Size(220, 27);
             TextBoxPhone.TabIndex = 14;
@@ -175,7 +179,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(470, 104);
+            label9.Location = new Point(557, 145);
             label9.Name = "label9";
             label9.Size = new Size(46, 20);
             label9.TabIndex = 15;
@@ -183,40 +187,78 @@
             // 
             // TextBoxEmail
             // 
-            TextBoxEmail.Location = new Point(522, 101);
+            TextBoxEmail.Location = new Point(626, 142);
             TextBoxEmail.Name = "TextBoxEmail";
             TextBoxEmail.Size = new Size(220, 27);
             TextBoxEmail.TabIndex = 16;
             // 
-            // ButtonUpdate
+            // btnUpdate
             // 
-            ButtonUpdate.Location = new Point(522, 147);
-            ButtonUpdate.Name = "ButtonUpdate";
-            ButtonUpdate.Size = new Size(94, 29);
-            ButtonUpdate.TabIndex = 17;
-            ButtonUpdate.Text = "Изменить";
-            ButtonUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Location = new Point(626, 175);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(94, 29);
+            btnUpdate.TabIndex = 17;
+            btnUpdate.Text = "Изменить";
+            btnUpdate.UseVisualStyleBackColor = true;
             // 
-            // ButtonDelete
+            // label10
             // 
-            ButtonDelete.Location = new Point(648, 147);
-            ButtonDelete.Name = "ButtonDelete";
-            ButtonDelete.Size = new Size(94, 29);
-            ButtonDelete.TabIndex = 18;
-            ButtonDelete.Text = "Удалить";
-            ButtonDelete.UseVisualStyleBackColor = true;
+            label10.AutoSize = true;
+            label10.Location = new Point(440, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(52, 20);
+            label10.TabIndex = 19;
+            label10.Text = "Статус";
+            // 
+            // TextBoxStatus
+            // 
+            TextBoxStatus.Location = new Point(440, 23);
+            TextBoxStatus.Name = "TextBoxStatus";
+            TextBoxStatus.Size = new Size(100, 27);
+            TextBoxStatus.TabIndex = 20;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(752, 175);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(94, 29);
+            btnDelete.TabIndex = 21;
+            btnDelete.Text = "Удалить";
+            btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(545, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(60, 20);
+            label11.TabIndex = 22;
+            label11.Text = "Мастер";
+            // 
+            // TextBoxMasterFullName
+            // 
+            TextBoxMasterFullName.Location = new Point(545, 23);
+            TextBoxMasterFullName.Name = "TextBoxMasterFullName";
+            TextBoxMasterFullName.Size = new Size(301, 27);
+            TextBoxMasterFullName.TabIndex = 23;
             // 
             // RepairRecordUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(ButtonDelete);
-            Controls.Add(ButtonUpdate);
+            BackColor = Color.FromArgb(118, 227, 131);
+            BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(TextBoxMasterFullName);
+            Controls.Add(label11);
+            Controls.Add(btnDelete);
+            Controls.Add(TextBoxStatus);
+            Controls.Add(label10);
+            Controls.Add(btnUpdate);
             Controls.Add(TextBoxEmail);
             Controls.Add(label9);
             Controls.Add(TextBoxPhone);
             Controls.Add(label8);
-            Controls.Add(TextBoxFullName);
+            Controls.Add(TextBoxClientFullName);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(TextBoxDesc);
@@ -230,7 +272,7 @@
             Controls.Add(TextBoxId);
             Controls.Add(label1);
             Name = "RepairRecordUserControl";
-            Size = new Size(745, 179);
+            Size = new Size(848, 205);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -249,12 +291,16 @@
         private TextBox TextBoxDesc;
         private Label label6;
         private Label label7;
-        private TextBox TextBoxFullName;
+        private TextBox TextBoxClientFullName;
         private Label label8;
         private TextBox TextBoxPhone;
         private Label label9;
         private TextBox TextBoxEmail;
-        private Button ButtonUpdate;
-        private Button ButtonDelete;
+        private Button btnUpdate;
+        private Label label10;
+        private TextBox TextBoxStatus;
+        private Button btnDelete;
+        private Label label11;
+        private TextBox TextBoxMasterFullName;
     }
 }

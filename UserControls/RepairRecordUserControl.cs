@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace ExamPrep.UserControls
+﻿namespace ExamPrep.UserControls
 {
     public partial class RepairRecordUserControl : UserControl
     {
+        public event EventHandler btnUpdateClicked;
+        public event EventHandler btnDeleteClicked;
+
         public RepairRecordUserControl()
         {
             InitializeComponent();
+            btnUpdate.Click += (sender, e) => btnUpdateClicked?.Invoke(this, EventArgs.Empty);
+            btnDelete.Click += (sender, e) => btnDeleteClicked?.Invoke(this, EventArgs.Empty);
         }
 
         public string RepairRecordId
@@ -27,6 +22,12 @@ namespace ExamPrep.UserControls
         {
             get => TextBoxDate.Text;
             set => TextBoxDate.Text = value;
+        }
+
+        public string RepairRecordStatus
+        {
+            get => TextBoxStatus.Text;
+            set => TextBoxStatus.Text = value;
         }
 
         public string RepairRecordDevice
@@ -47,10 +48,16 @@ namespace ExamPrep.UserControls
             set => TextBoxDesc.Text = value;
         }
 
-        public string RepairRecordFullName
+        public string RepairRecordMasterFullName
         {
-            get => TextBoxFullName.Text;
-            set => TextBoxFullName.Text = value;
+            get => TextBoxMasterFullName.Text;
+            set => TextBoxMasterFullName.Text = value;
+        }
+
+        public string RepairRecordClientFullName
+        {
+            get => TextBoxClientFullName.Text;
+            set => TextBoxClientFullName.Text = value;
         }
 
         public string RepairRecordPhone
