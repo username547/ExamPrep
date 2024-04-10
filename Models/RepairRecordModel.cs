@@ -3,7 +3,8 @@
     public class RepairRecordModel
     {
         public int RepairRecordId;
-        public DateOnly RepairRecordDate;
+        public DateTime RepairRecordDate;
+        public DateTime? RepairRecordCompletedDate;
         public string RepairRecordStatus { get; set; } = string.Empty;
         public string RepairRecordDevice { get; set; } = string.Empty;
         public string RepairRecordType { get; set; } = string.Empty;

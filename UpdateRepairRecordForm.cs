@@ -17,41 +17,65 @@ namespace ExamPrep
         private void UpdateRepairRecordForm_Load(object sender, EventArgs e)
         {
             FillComboBox();
-            TextBoxDevice.Text = _dto.RepairRecordDevice;
-            TextBoxDesc.Text = _dto.RepairRecordDesc;
-            TextBoxMasterFullName.Text = _dto.RepairRecordMasterFullName;
-            TextBoxClientFullName.Text = _dto.RepairRecordClientFullName;
-            TextBoxPhone.Text = _dto.RepairRecordPhone;
-            TextBoxEmail.Text = _dto.RepairRecordEmail;
+            LoadPrevData();
         }
 
-        private void UpdateRepairRecordBtn_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //_dto.RepairRecordDate = TextBoxRepairRecordDate;
-            _dto.RepairRecordStatus = ComboBoxStatus.SelectedItem.ToString();
-            _dto.RepairRecordDevice = TextBoxDevice.Text;
-            _dto.RepairRecordType = ComboBoxType.SelectedItem.ToString();
-            _dto.RepairRecordDesc = TextBoxDesc.Text;
-            _dto.RepairRecordMasterFullName = TextBoxMasterFullName.Text;
-            _dto.RepairRecordClientFullName = TextBoxClientFullName.Text;
-            _dto.RepairRecordPhone = TextBoxPhone.Text;
-            _dto.RepairRecordEmail = TextBoxEmail.Text;
+            Type selectedType;
+            Status selectedStatus;
+
+            if (!Enum.TryParse(comboBoxType.SelectedItem?.ToString(), out selectedType) ||
+                !Enum.TryParse(comboBoxStatus.SelectedItem?.ToString(), out selectedStatus))
+            {
+                MessageBox.Show("Выберите тип и статус для записи об ремонте.", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBoxDevice.Text) ||
+                string.IsNullOrWhiteSpace(textBoxDesc.Text) ||
+                string.IsNullOrWhiteSpace(textBoxMasterFullName.Text) ||
+                string.IsNullOrWhiteSpace(textBoxClientFullName.Text) ||
+                string.IsNullOrWhiteSpace(textBoxPhone.Text) ||
+                string.IsNullOrWhiteSpace(textBoxEmail.Text))
+            {
+                MessageBox.Show("Заполните все поля.", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            _dto.RepairRecordCompletedDate = selectedStatus == Status.Завершен ? DateTime.Now : null;
+            _dto.RepairRecordStatus = selectedStatus.ToString();
+            _dto.RepairRecordDevice = textBoxDevice.Text;
+            _dto.RepairRecordType = selectedType.ToString();
+            _dto.RepairRecordDesc = textBoxDesc.Text;
+            _dto.RepairRecordMasterFullName = textBoxMasterFullName.Text;
+            _dto.RepairRecordClientFullName = textBoxClientFullName.Text;
+            _dto.RepairRecordPhone = textBoxPhone.Text;
+            _dto.RepairRecordEmail = textBoxEmail.Text;
+
             _mainForm.UpdateRepairRecord(_dto);
+            _mainForm.GetStatistics();
             this.Close();
         }
 
-        private void CancelBtn_Click(object sender, EventArgs e)
-        {
-            _mainForm.Show();
-            this.Close();
-        }
+        private void btnCancel_Click(object sender, EventArgs e) => this.Close();
 
         private void FillComboBox()
         {
-            foreach (Type type in Enum.GetValues(typeof(Type))) ComboBoxType.Items.Add(type.ToString());
-            foreach (Status status in Enum.GetValues(typeof(Status))) ComboBoxStatus.Items.Add(status.ToString());
-            ComboBoxType.SelectedIndex = ComboBoxType.Items.IndexOf(_dto.RepairRecordType);
-            ComboBoxStatus.SelectedIndex = ComboBoxStatus.Items.IndexOf(_dto.RepairRecordStatus);
+            foreach (Type type in Enum.GetValues(typeof(Type))) comboBoxType.Items.Add(type.ToString());
+            foreach (Status status in Enum.GetValues(typeof(Status))) comboBoxStatus.Items.Add(status.ToString());
+            comboBoxType.SelectedIndex = comboBoxType.Items.IndexOf(_dto.RepairRecordType);
+            comboBoxStatus.SelectedIndex = comboBoxStatus.Items.IndexOf(_dto.RepairRecordStatus);
+        }
+
+        private void LoadPrevData()
+        {
+            textBoxDevice.Text = _dto.RepairRecordDevice;
+            textBoxDesc.Text = _dto.RepairRecordDesc;
+            textBoxMasterFullName.Text = _dto.RepairRecordMasterFullName;
+            textBoxClientFullName.Text = _dto.RepairRecordClientFullName;
+            textBoxPhone.Text = _dto.RepairRecordPhone;
+            textBoxEmail.Text = _dto.RepairRecordEmail;
         }
     }
 }

@@ -29,201 +29,212 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            TextBoxDevice = new TextBox();
-            ComboBoxType = new ComboBox();
+            textBoxDevice = new TextBox();
+            comboBoxType = new ComboBox();
             label2 = new Label();
             label3 = new Label();
-            TextBoxClientFullName = new TextBox();
+            textBoxClientFullName = new TextBox();
             label4 = new Label();
-            TextBoxPhone = new TextBox();
+            textBoxPhone = new TextBox();
             label5 = new Label();
-            TextBoxEmail = new TextBox();
-            CreateRepairRecordBtn = new Button();
-            CancelBtn = new Button();
-            TextBoxDesc = new TextBox();
+            textBoxEmail = new TextBox();
+            btnCreate = new Button();
+            btnCancel = new Button();
+            textBoxDesc = new TextBox();
             label6 = new Label();
             label7 = new Label();
-            ComboBoxStatus = new ComboBox();
+            comboBoxStatus = new ComboBox();
             label8 = new Label();
-            TextBoxMasterFullName = new TextBox();
+            textBoxMasterFullName = new TextBox();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Comic Sans MS", 9F);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(113, 20);
+            label1.Size = new Size(114, 20);
             label1.TabIndex = 0;
             label1.Text = "Оборудование";
             // 
-            // TextBoxDevice
+            // textBoxDevice
             // 
-            TextBoxDevice.Location = new Point(12, 32);
-            TextBoxDevice.Name = "TextBoxDevice";
-            TextBoxDevice.Size = new Size(160, 27);
-            TextBoxDevice.TabIndex = 1;
+            textBoxDevice.Location = new Point(12, 32);
+            textBoxDevice.Name = "textBoxDevice";
+            textBoxDevice.Size = new Size(160, 27);
+            textBoxDevice.TabIndex = 1;
             // 
-            // ComboBoxType
+            // comboBoxType
             // 
-            ComboBoxType.FormattingEnabled = true;
-            ComboBoxType.Location = new Point(181, 31);
-            ComboBoxType.Name = "ComboBoxType";
-            ComboBoxType.Size = new Size(100, 28);
-            ComboBoxType.TabIndex = 2;
+            comboBoxType.FormattingEnabled = true;
+            comboBoxType.Location = new Point(181, 31);
+            comboBoxType.Name = "comboBoxType";
+            comboBoxType.Size = new Size(100, 28);
+            comboBoxType.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Comic Sans MS", 9F);
             label2.Location = new Point(178, 9);
             label2.Name = "label2";
-            label2.Size = new Size(93, 20);
+            label2.Size = new Size(98, 20);
             label2.TabIndex = 3;
             label2.Text = "Тип неиспр.";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Comic Sans MS", 9F);
             label3.Location = new Point(12, 115);
             label3.Name = "label3";
-            label3.Size = new Size(103, 20);
+            label3.Size = new Size(107, 20);
             label3.TabIndex = 4;
             label3.Text = "ФИО Клиента";
             // 
-            // TextBoxClientFullName
+            // textBoxClientFullName
             // 
-            TextBoxClientFullName.Location = new Point(12, 138);
-            TextBoxClientFullName.Name = "TextBoxClientFullName";
-            TextBoxClientFullName.Size = new Size(379, 27);
-            TextBoxClientFullName.TabIndex = 5;
+            textBoxClientFullName.Location = new Point(12, 138);
+            textBoxClientFullName.Name = "textBoxClientFullName";
+            textBoxClientFullName.Size = new Size(379, 27);
+            textBoxClientFullName.TabIndex = 5;
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Comic Sans MS", 9F);
             label4.Location = new Point(12, 168);
             label4.Name = "label4";
-            label4.Size = new Size(97, 20);
+            label4.Size = new Size(105, 20);
             label4.TabIndex = 6;
             label4.Text = "Тел. Клиента";
             // 
-            // TextBoxPhone
+            // textBoxPhone
             // 
-            TextBoxPhone.Location = new Point(12, 191);
-            TextBoxPhone.Name = "TextBoxPhone";
-            TextBoxPhone.Size = new Size(160, 27);
-            TextBoxPhone.TabIndex = 7;
+            textBoxPhone.Location = new Point(12, 191);
+            textBoxPhone.Name = "textBoxPhone";
+            textBoxPhone.Size = new Size(180, 27);
+            textBoxPhone.TabIndex = 7;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(284, 168);
+            label5.Font = new Font("Comic Sans MS", 9F);
+            label5.Location = new Point(281, 168);
             label5.Name = "label5";
-            label5.Size = new Size(107, 20);
+            label5.Size = new Size(110, 20);
             label5.TabIndex = 8;
             label5.Text = "Email Клиента";
             // 
-            // TextBoxEmail
+            // textBoxEmail
             // 
-            TextBoxEmail.Location = new Point(231, 191);
-            TextBoxEmail.Name = "TextBoxEmail";
-            TextBoxEmail.Size = new Size(160, 27);
-            TextBoxEmail.TabIndex = 9;
+            textBoxEmail.Location = new Point(211, 191);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(180, 27);
+            textBoxEmail.TabIndex = 9;
             // 
-            // CreateRepairRecordBtn
+            // btnCreate
             // 
-            CreateRepairRecordBtn.Location = new Point(12, 404);
-            CreateRepairRecordBtn.Name = "CreateRepairRecordBtn";
-            CreateRepairRecordBtn.Size = new Size(94, 29);
-            CreateRepairRecordBtn.TabIndex = 10;
-            CreateRepairRecordBtn.Text = "Добавить";
-            CreateRepairRecordBtn.UseVisualStyleBackColor = true;
-            CreateRepairRecordBtn.Click += CreateRepairRecordBtn_Click;
+            btnCreate.Font = new Font("Comic Sans MS", 9F);
+            btnCreate.Location = new Point(12, 404);
+            btnCreate.Name = "btnCreate";
+            btnCreate.Size = new Size(94, 29);
+            btnCreate.TabIndex = 10;
+            btnCreate.Text = "Добавить";
+            btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Click += btnCreate_Click;
             // 
-            // CancelBtn
+            // btnCancel
             // 
-            CancelBtn.Location = new Point(297, 404);
-            CancelBtn.Name = "CancelBtn";
-            CancelBtn.Size = new Size(94, 29);
-            CancelBtn.TabIndex = 11;
-            CancelBtn.Text = "Отмена";
-            CancelBtn.UseVisualStyleBackColor = true;
-            CancelBtn.Click += CancelBtn_Click;
+            btnCancel.Font = new Font("Comic Sans MS", 9F);
+            btnCancel.Location = new Point(297, 404);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(94, 29);
+            btnCancel.TabIndex = 11;
+            btnCancel.Text = "Отмена";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
-            // TextBoxDesc
+            // textBoxDesc
             // 
-            TextBoxDesc.Location = new Point(12, 244);
-            TextBoxDesc.Multiline = true;
-            TextBoxDesc.Name = "TextBoxDesc";
-            TextBoxDesc.ScrollBars = ScrollBars.Vertical;
-            TextBoxDesc.Size = new Size(379, 154);
-            TextBoxDesc.TabIndex = 12;
+            textBoxDesc.Location = new Point(12, 244);
+            textBoxDesc.Multiline = true;
+            textBoxDesc.Name = "textBoxDesc";
+            textBoxDesc.ScrollBars = ScrollBars.Vertical;
+            textBoxDesc.Size = new Size(379, 154);
+            textBoxDesc.TabIndex = 12;
             // 
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Comic Sans MS", 9F);
             label6.Location = new Point(12, 221);
             label6.Name = "label6";
-            label6.Size = new Size(79, 20);
+            label6.Size = new Size(83, 20);
             label6.TabIndex = 13;
             label6.Text = "Описание";
             // 
             // label7
             // 
             label7.AutoSize = true;
+            label7.Font = new Font("Comic Sans MS", 9F);
             label7.Location = new Point(291, 9);
             label7.Name = "label7";
-            label7.Size = new Size(52, 20);
+            label7.Size = new Size(56, 20);
             label7.TabIndex = 14;
             label7.Text = "Статус";
             // 
-            // ComboBoxStatus
+            // comboBoxStatus
             // 
-            ComboBoxStatus.FormattingEnabled = true;
-            ComboBoxStatus.Location = new Point(291, 31);
-            ComboBoxStatus.Name = "ComboBoxStatus";
-            ComboBoxStatus.Size = new Size(100, 28);
-            ComboBoxStatus.TabIndex = 15;
+            comboBoxStatus.FormattingEnabled = true;
+            comboBoxStatus.Location = new Point(291, 31);
+            comboBoxStatus.Name = "comboBoxStatus";
+            comboBoxStatus.Size = new Size(100, 28);
+            comboBoxStatus.TabIndex = 15;
             // 
             // label8
             // 
             label8.AutoSize = true;
+            label8.Font = new Font("Comic Sans MS", 9F);
             label8.Location = new Point(12, 62);
             label8.Name = "label8";
-            label8.Size = new Size(105, 20);
+            label8.Size = new Size(106, 20);
             label8.TabIndex = 16;
             label8.Text = "ФИО Мастера";
             // 
-            // TextBoxMasterFullName
+            // textBoxMasterFullName
             // 
-            TextBoxMasterFullName.Location = new Point(12, 85);
-            TextBoxMasterFullName.Name = "TextBoxMasterFullName";
-            TextBoxMasterFullName.Size = new Size(379, 27);
-            TextBoxMasterFullName.TabIndex = 17;
+            textBoxMasterFullName.Location = new Point(12, 85);
+            textBoxMasterFullName.Name = "textBoxMasterFullName";
+            textBoxMasterFullName.Size = new Size(379, 27);
+            textBoxMasterFullName.TabIndex = 17;
             // 
             // CreateRepairRecordForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(401, 440);
-            Controls.Add(TextBoxMasterFullName);
+            Controls.Add(textBoxMasterFullName);
             Controls.Add(label8);
-            Controls.Add(ComboBoxStatus);
+            Controls.Add(comboBoxStatus);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(TextBoxDesc);
-            Controls.Add(CancelBtn);
-            Controls.Add(CreateRepairRecordBtn);
-            Controls.Add(TextBoxEmail);
+            Controls.Add(textBoxDesc);
+            Controls.Add(btnCancel);
+            Controls.Add(btnCreate);
+            Controls.Add(textBoxEmail);
             Controls.Add(label5);
-            Controls.Add(TextBoxPhone);
+            Controls.Add(textBoxPhone);
             Controls.Add(label4);
-            Controls.Add(TextBoxClientFullName);
+            Controls.Add(textBoxClientFullName);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(ComboBoxType);
-            Controls.Add(TextBoxDevice);
+            Controls.Add(comboBoxType);
+            Controls.Add(textBoxDevice);
             Controls.Add(label1);
             Name = "CreateRepairRecordForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CreateRepairRecordForm";
             Load += CreateRepairRecordForm_Load;
             ResumeLayout(false);
@@ -233,22 +244,22 @@
         #endregion
 
         private Label label1;
-        private TextBox TextBoxDevice;
-        private ComboBox ComboBoxType;
+        private TextBox textBoxDevice;
+        private ComboBox comboBoxType;
         private Label label2;
         private Label label3;
-        private TextBox TextBoxClientFullName;
+        private TextBox textBoxClientFullName;
         private Label label4;
-        private TextBox TextBoxPhone;
+        private TextBox textBoxPhone;
         private Label label5;
-        private TextBox TextBoxEmail;
-        private Button CreateRepairRecordBtn;
-        private Button CancelBtn;
-        private TextBox TextBoxDesc;
+        private TextBox textBoxEmail;
+        private Button btnCreate;
+        private Button btnCancel;
+        private TextBox textBoxDesc;
         private Label label6;
         private Label label7;
-        private ComboBox ComboBoxStatus;
+        private ComboBox comboBoxStatus;
         private Label label8;
-        private TextBox TextBoxMasterFullName;
+        private TextBox textBoxMasterFullName;
     }
 }

@@ -14,32 +14,38 @@
 
         public string RepairRecordId
         {
-            get => TextBoxId.Text;
-            set => TextBoxId.Text = value;
+            get => textBoxId.Text;
+            set => textBoxId.Text = value;
         }
 
         public string RepairRecordDate
         {
-            get => TextBoxDate.Text;
-            set => TextBoxDate.Text = value;
+            get => textBoxDate.Text;
+            set => textBoxDate.Text = value;
+        }
+
+        public string RepairRecordCompletedDate
+        {
+            get => textBoxCompletedDate.Text;
+            set => textBoxCompletedDate.Text = value;
         }
 
         public string RepairRecordStatus
         {
-            get => TextBoxStatus.Text;
-            set => TextBoxStatus.Text = value;
+            get => textBoxStatus.Text;
+            set => textBoxStatus.Text = value;
         }
 
         public string RepairRecordDevice
         {
-            get => TextBoxDevice.Text;
-            set => TextBoxDevice.Text = value;
+            get => textBoxDevice.Text;
+            set => textBoxDevice.Text = value;
         }
 
         public string RepairRecordType
         {
-            get => TextBoxType.Text;
-            set => TextBoxType.Text = value;
+            get => textBoxType.Text;
+            set => textBoxType.Text = value;
         }
 
         public string RepairRecordDesc
@@ -50,26 +56,26 @@
 
         public string RepairRecordMasterFullName
         {
-            get => TextBoxMasterFullName.Text;
-            set => TextBoxMasterFullName.Text = value;
+            get => textBoxMasterFullName.Text;
+            set => textBoxMasterFullName.Text = value;
         }
 
         public string RepairRecordClientFullName
         {
-            get => TextBoxClientFullName.Text;
-            set => TextBoxClientFullName.Text = value;
+            get => textBoxClientFullName.Text;
+            set => textBoxClientFullName.Text = value;
         }
 
         public string RepairRecordPhone
         {
-            get => TextBoxPhone.Text;
-            set => TextBoxPhone.Text = value;
+            get => textBoxPhone.Text;
+            set => textBoxPhone.Text = value;
         }
 
         public string RepairRecordEmail
         {
-            get => TextBoxEmail.Text;
-            set => TextBoxEmail.Text = value;
+            get => textBoxEmail.Text;
+            set => textBoxEmail.Text = value;
         }
     }
 }

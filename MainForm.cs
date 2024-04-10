@@ -1,17 +1,27 @@
 ﻿using ExamPrep.Models;
 using ExamPrep.UserControls;
-using System.Security.Cryptography;
 
 namespace ExamPrep
 {
     public partial class MainForm : Form
     {
         public List<RepairRecordModel> repairRecords;
+        public int numCompleted;
+        public DateTime? avgDateTime;
 
         public MainForm()
         {
             InitializeComponent();
             repairRecords = new List<RepairRecordModel>();
+            numCompleted = 0;
+            avgDateTime = null;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            labelCompleted.Text = "";
+            labelAngDateTime.Text = "";
+            GetStatistics();
         }
 
         public void CreateRepairRecord(RepairRecordModel dto)
@@ -24,6 +34,7 @@ namespace ExamPrep
         {
             var repairRecord = repairRecords.First(x => x.RepairRecordId == dto.RepairRecordId);
             repairRecord.RepairRecordDate = dto.RepairRecordDate;
+            repairRecord.RepairRecordCompletedDate = dto.RepairRecordCompletedDate;
             repairRecord.RepairRecordStatus = dto.RepairRecordStatus;
             repairRecord.RepairRecordDevice = dto.RepairRecordDevice;
             repairRecord.RepairRecordType = dto.RepairRecordType;
@@ -39,16 +50,17 @@ namespace ExamPrep
         {
             RepairRecordUserControl repairRecordUserControl = new RepairRecordUserControl
             {
-                RepairRecordId = Convert.ToString(repairRecord.RepairRecordId),
-                RepairRecordDate = Convert.ToString(repairRecord.RepairRecordDate),
-                RepairRecordStatus = Convert.ToString(repairRecord.RepairRecordStatus),
-                RepairRecordDevice = Convert.ToString(repairRecord.RepairRecordDevice),
-                RepairRecordType = Convert.ToString(repairRecord.RepairRecordType),
-                RepairRecordDesc = Convert.ToString(repairRecord.RepairRecordDesc),
-                RepairRecordMasterFullName = Convert.ToString(repairRecord.RepairRecordMasterFullName),
-                RepairRecordClientFullName = Convert.ToString(repairRecord.RepairRecordClientFullName),
-                RepairRecordPhone = Convert.ToString(repairRecord.RepairRecordPhone),
-                RepairRecordEmail = Convert.ToString(repairRecord.RepairRecordEmail),
+                RepairRecordId = repairRecord.RepairRecordId.ToString(),
+                RepairRecordDate = repairRecord.RepairRecordDate.ToString(),
+                RepairRecordCompletedDate = repairRecord.RepairRecordCompletedDate.ToString() ?? string.Empty,
+                RepairRecordStatus = repairRecord.RepairRecordStatus,
+                RepairRecordDevice = repairRecord.RepairRecordDevice,
+                RepairRecordType = repairRecord.RepairRecordType,
+                RepairRecordDesc = repairRecord.RepairRecordDesc,
+                RepairRecordMasterFullName = repairRecord.RepairRecordMasterFullName,
+                RepairRecordClientFullName = repairRecord.RepairRecordClientFullName,
+                RepairRecordPhone = repairRecord.RepairRecordPhone,
+                RepairRecordEmail = repairRecord.RepairRecordEmail,
             };
 
             repairRecordUserControl.btnUpdateClicked += btnUpdate_Click!;
@@ -63,7 +75,26 @@ namespace ExamPrep
             foreach (RepairRecordModel item in repairRecords) CreateRepairRecordUserControl(item);
         }
 
-        private void CreateBtn_Click(object sender, EventArgs e)
+        public void GetStatistics()
+        {
+            numCompleted = 0;
+            double temp = 0;
+            foreach (RepairRecordModel item in repairRecords)
+            {
+                if (item.RepairRecordStatus == Status.Завершен.ToString())
+                    numCompleted++;
+
+                if (item.RepairRecordCompletedDate != null)
+                    temp += (item.RepairRecordCompletedDate.Value - item.RepairRecordDate).TotalSeconds;
+            }
+
+            labelCompleted.Text = Convert.ToString(numCompleted);
+
+            if (numCompleted > 0) labelAngDateTime.Text = Convert.ToString(temp / numCompleted);
+            else labelAngDateTime.Text = "0";
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
         {
             int lastRepairRecordId = repairRecords.LastOrDefault()?.RepairRecordId ?? 0;
             CreateRepairRecordForm createRepairRecordForm = new CreateRepairRecordForm(this, lastRepairRecordId);
@@ -84,6 +115,7 @@ namespace ExamPrep
             var repairRecord = repairRecords.First(x => x.RepairRecordId == Convert.ToInt32(repairRecordUserControl!.RepairRecordId));
             repairRecords.Remove(repairRecord);
             RefreshRepairRecordUserControls();
+            GetStatistics();
         }
     }
 }
