@@ -1,5 +1,5 @@
-﻿using ExamPrep.Models;
-using ExamPrep.UserControls;
+﻿using ExamPrep.UserControls;
+using ModelAndStatistics;
 
 namespace ExamPrep
 {
@@ -7,14 +7,14 @@ namespace ExamPrep
     {
         public List<RepairRecordModel> repairRecords;
         public int numCompleted;
-        public DateTime? avgDateTime;
+        public double avgDateTime;
 
         public MainForm()
         {
             InitializeComponent();
             repairRecords = new List<RepairRecordModel>();
             numCompleted = 0;
-            avgDateTime = null;
+            avgDateTime = 0;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -77,21 +77,9 @@ namespace ExamPrep
 
         public void GetStatistics()
         {
-            numCompleted = 0;
-            double temp = 0;
-            foreach (RepairRecordModel item in repairRecords)
-            {
-                if (item.RepairRecordStatus == Status.Завершен.ToString())
-                    numCompleted++;
-
-                if (item.RepairRecordCompletedDate != null)
-                    temp += (item.RepairRecordCompletedDate.Value - item.RepairRecordDate).TotalSeconds;
-            }
-
+            Statistics.GetStatistics(repairRecords, out numCompleted, out avgDateTime);
             labelCompleted.Text = Convert.ToString(numCompleted);
-
-            if (numCompleted > 0) labelAngDateTime.Text = Convert.ToString(temp / numCompleted);
-            else labelAngDateTime.Text = "0";
+            labelAngDateTime.Text = Convert.ToString(avgDateTime);
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
